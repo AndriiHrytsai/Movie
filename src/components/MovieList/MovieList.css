@@ -1,0 +1,13 @@
+.movieInfo{
+    width: 218px;
+    height: 370px;
+    margin:20px;
+    border-radius: 10px;
+    box-shadow: 10px 4px 10px 1px rgb(0.3,0.4,0.5);
+
+}
+.movieInfo img{
+    width: 218px;
+    height: 320px;
+    border-radius: 10px;
+}
