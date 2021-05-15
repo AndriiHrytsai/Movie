@@ -12,5 +12,11 @@ const getMovie = (page) => {
 const getMovieID = (id) => {
     return axiosInstance.get('/movie/' + id + API_KEY);
 }
-
-export {getMovie, getMovieID}
+const getMovieVideo = (id) => {
+    return axiosInstance.get('/movie/' + id + '/videos' + API_KEY)
+}
+export {
+    getMovie,
+    getMovieID,
+    getMovieVideo
+}

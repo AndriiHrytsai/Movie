@@ -1,0 +1,49 @@
+.detailsInfo {
+    display: flex;
+    width: 1200px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+.detailsImage {
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.detailsImage img {
+    box-shadow: 10px 3px 200px 50px rgb(0.3, 0.4, 0.5);
+}
+
+.movieDetailsContainer {
+    height: 300px;
+    padding-top: 30px;
+}
+
+.movieDetailsHeader {
+    margin-bottom: 20px;
+}
+
+.movieDetailsPopularity {
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+.movieDetailsOverview{
+    padding-top: 40px;
+    width: 100%;
+}
+.movieDetailsFigure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: red;
+    border-radius: 50%;
+    font-weight: 650;
+    color: white;
+}
+.wrapper{
+    width: 70%;
+    font-weight: 600;
+}
