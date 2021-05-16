@@ -4,6 +4,7 @@ import Header from "./components/header/Header";
 import Movie from "./components/movie/Movie";
 import Home from "./components/home/Home";
 import MovieListDetails from "./components/MovieListDetails/MovieListDetails";
+import MovieLike from "./components/MovieListDetails/MovieLike";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                     <Route path={"/movie/:id"} render={(props) => {
                         return <MovieListDetails item={props}/>
                     }}/>
+                    <Route exact path={"/like"} render={() => <MovieLike/>}/>
                 </Switch>
             </Router>
         </div>

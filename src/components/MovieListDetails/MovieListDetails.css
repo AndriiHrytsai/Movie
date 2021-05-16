@@ -47,3 +47,43 @@
     width: 70%;
     font-weight: 600;
 }
+.likeWrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+.likeContainer{
+    width: 250px;
+    background: silver;
+    height: 450px;
+    margin: 20px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 10px 10px 10px black;
+
+}
+.likePhoto{
+    width: 100%;
+    border-radius: 10px;
+}
+.likeTitle{
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+}
+.likeButton{
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    border-radius: 5px;
+    color: white;
+}
+.likeButtonOne{
+    position: absolute;
+    width: 45px;
+    height: 25px;
+    left: 0;
+    bottom: 0;
+    background: red;
+    color: white;
+    border-radius: 5px;
+}

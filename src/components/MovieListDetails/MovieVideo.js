@@ -1,7 +1,7 @@
-import Raect from "react"
 import ReactPlayer from "react-player";
 
 export default function MovieVideo({item}) {
+    console.log(item.key)
     return (
         <div>
             <ReactPlayer width={"1200px"}

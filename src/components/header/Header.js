@@ -11,6 +11,9 @@ export default function Header() {
                 <li className={'headerLink'}>
                     <Link className={'headerLinkInfo'} to="/movie">Movie</Link>
                 </li>
+                <li className={'headerLink'}>
+                    <Link className={'headerLinkInfo'} to="/like">Like</Link>
+                </li>
             </ul>
             <form className={'form'}>
                 <input className={'headerForm'} type="text" name={'search'}
