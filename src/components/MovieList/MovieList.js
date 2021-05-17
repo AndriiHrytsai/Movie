@@ -9,6 +9,7 @@ export default function MovieList({item}) {
             <Link className={"movieInfoLink"} to={"/movie/" + item.id}><p>{item.title}</p></Link>
 
             <p className={'vote_average'}>{item.vote_average}</p>
+
         </div>
     )
 }
