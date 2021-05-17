@@ -7,6 +7,7 @@ export default function Movie() {
     let [movie, setMovie] = useState([]);
     let [page, setPage] = useState(1);
     let [totalPages, setTotalPages] = useState(null)
+    let [] = useState('i')
     const nextPage = () => {
         if (page < 500) {
             setPage(page + 1)

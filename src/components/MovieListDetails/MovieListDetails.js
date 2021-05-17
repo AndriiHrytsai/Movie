@@ -7,6 +7,28 @@ export default function MovieListDetails({item}) {
     let {match: {params: {id}}} = item
     let [movieDetails, setMovieDetails] = useState(null)
     let [movieVideo, setMovieVideo] = useState(null)
+    let [likeItem, setLikeItem] = useState(JSON.parse(localStorage.getItem("like")) || [])
+    let [flag, setFlag] = useState(false)
+    useEffect(() => {
+        localStorage.setItem("like", JSON.stringify(likeItem))
+    })
+    const like = (e) => {
+        e.preventDefault();
+        const likes = {
+            id: id,
+            photo : movieDetails.poster_path,
+            title : movieDetails.title
+        }
+        let buttonStatus = likeItem.find(value => value.id === id)
+        if (!buttonStatus) {
+            likeItem.push(likes)
+            setFlag(true)
+        } else {
+            alert(movieDetails.title + " is true")
+        }
+        setLikeItem([...likeItem])
+    }
+    console.log(likeItem)
     useEffect(() => {
         getMovieID(id).then(value => setMovieDetails(value.data))
     }, [id])
@@ -46,6 +68,9 @@ export default function MovieListDetails({item}) {
                             </div>
                         </div>
                         <div className={'movieDetailsOverview'}>{movieDetails.overview}</div>
+
+                        <button className={"likeButton"} onClick={like}>{!flag ? 'like' : 'deslike'}</button>
+
                     </div>
                 </div>)
             }

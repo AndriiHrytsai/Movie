@@ -15,12 +15,7 @@ export default function Header() {
                     <Link className={'headerLinkInfo'} to="/like">Like</Link>
                 </li>
             </ul>
-            <form className={'form'}>
-                <input className={'headerForm'} type="text" name={'search'}
-                       placeholder={'What search?'}
-                />
-                <button>search</button>
-            </form>
+
         </div>
     )
 }
