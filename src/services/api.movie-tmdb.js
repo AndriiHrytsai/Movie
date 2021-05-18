@@ -18,9 +18,13 @@ const getMovieVideo = (id) => {
 const searchMovie = (text, page) => {
     return axiosInstance.get('/search/movie' + API_KEY + "&query=" + text + "&page=" + page)
 }
+const getPopularMovie = () => {
+    return axiosInstance.get('/movie/popular' + API_KEY +"&query=1")
+}
 export {
     getMovie,
     getMovieID,
     getMovieVideo,
-    searchMovie
+    searchMovie,
+    getPopularMovie
 }
