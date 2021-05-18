@@ -28,11 +28,13 @@
     margin-top: 20px;
     padding-bottom: 10px;
 }
-.movieDetailsOverview{
+
+.movieDetailsOverview {
     padding-top: 40px;
     width: 100%;
 }
-.movieDetailsFigure{
+
+.movieDetailsFigure {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,43 +45,62 @@
     font-weight: 650;
     color: white;
 }
-.wrapper{
+
+.wrapper {
     width: 70%;
     font-weight: 600;
 }
-.likeWrapper{
+
+.likeWrapper {
     display: flex;
 }
-.likeContainer{
+
+.likeContainer {
     width: 250px;
     background: silver;
     height: 420px;
     margin: 30px;
     border-radius: 10px;
     box-shadow: 0 10px 10px 10px black;
-
+    position: relative;
 }
-.likePhoto{
+
+.likePhoto {
     width: 100%;
     border-radius: 10px;
 }
-.likeTitle{
+
+.likeTitle {
     font-weight: 600;
     display: flex;
     justify-content: center;
 }
 
-.likeWrapperContainer{
+.likeWrapperContainer {
     display: flex;
     flex-wrap: wrap;
     width: 1300px;
     margin: 0 auto;
 }
-.likeButton{
+
+.likeButton {
     width: 80px;
     border-radius: 10px;
     background: black;
     color: white;
     font-size: 15px;
+}
+
+.delLikeMovie {
+    width: 45px;
+    height: 45px;
+    background: none;
+    color: white;
+    /*border-radius: 50%;*/
+    font-size: 30px;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 0;
 
 }
