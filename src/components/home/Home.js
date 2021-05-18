@@ -13,7 +13,7 @@ export default function Home() {
         <div className={"popular-container"}>
             {
                 popularMovie.map(value => {
-                    return <img key={value.id}
+                    return<img key={value.id}
                                 src={"https://image.tmdb.org/t/p/original" + value.backdrop_path}
                                 alt={value.id}/>
                 })
