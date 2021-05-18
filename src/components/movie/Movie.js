@@ -3,13 +3,27 @@ import {getMovie, searchMovie} from "../../services/api.movie-tmdb";
 import MovieList from "../MovieList/MovieList";
 import "./Movie.css"
 import {Switch} from "@material-ui/core/";
+import {ThemeProvider, createMuiTheme} from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import {red} from "@material-ui/core/colors";
 
 export default function Movie() {
+    let [dark, setDark] = useState(false)
+    const theme = createMuiTheme({
+        palette: {
+            type: "dark"
+        },
+    })
+    const buttonTheme = createMuiTheme({
+        palette: {
+            primary: red,
+            secondary: red,
+        },
+    })
     let [movie, setMovie] = useState([]);
     let [page, setPage] = useState(1);
     let [totalPages, setTotalPages] = useState(null)
     let [text, setText] = useState("")
-    let [] = useState('i')
     const nextPage = () => {
         if (page < 500) {
             setPage(page + 1)
@@ -26,15 +40,6 @@ export default function Movie() {
     const firstPage = () => {
         setPage(page = 1)
     }
-    let [status, setStatus] = useState(false)
-    const add = () => {
-        if (status) {
-            setStatus(false)
-        } else {
-            setStatus(true)
-        }
-        // setStatus(!status)
-    }
     useEffect(() => {
         getMovie(page).then(
             value => {
@@ -49,38 +54,41 @@ export default function Movie() {
             })
     }, [text, page])
 
-    console.log(movie)
-    console.log(totalPages)
     return (
-        <div>
-            <div className={"searchContainer"} style={status ? {background: "gold"} : {background: "none"}}>
-                <input onChange={(ev) => {
-                    setText(ev.target.value)
-                }} className={"search"}
-                       placeholder={"Search"}
-                />
-                <Switch onChange={add}/>
-
-            </div>
-            <div className={"film"}>
-                <div className={'filmContainer'}>
-                    {
-                        movie.map((value, index) => {
-                            return (<MovieList
-                                key={index}
-                                item={value}
-                            />)
-                        })
-                    }
+        <ThemeProvider theme={dark ? theme : buttonTheme}>
+            <Paper style={{height: "100%"}}>
+                <div className={"movieContainerWr"}>
+                    <div className={"searchContainer"}>
+                        <input onChange={(ev) => {
+                            setText(ev.target.value)
+                        }} className={"search"}
+                               placeholder={"Search"}
+                        />
+                        <Switch onChange={() => {
+                            setDark(!dark)
+                        }} checked={dark}/>
+                    </div>
+                    <div className={"film"}>
+                        <div className={'filmContainer'}>
+                            {
+                                movie.map((value, index) => {
+                                    return (<MovieList
+                                        key={index}
+                                        item={value}
+                                    />)
+                                })
+                            }
+                        </div>
+                        <div className={"storyPage"}>
+                            <button onClick={firstPage}>First</button>
+                            <button onClick={previous}>Previous</button>
+                            <span>{page}</span>
+                            <button onClick={nextPage}>Next</button>
+                            <button onClick={endPage}>Last</button>
+                        </div>
+                    </div>
                 </div>
-                <div className={"storyPage"}>
-                    <button onClick={firstPage}>First</button>
-                    <button onClick={previous}>Previous</button>
-                    <span>{page}</span>
-                    <button onClick={nextPage}>Next</button>
-                    <button onClick={endPage}>Last</button>
-                </div>
-            </div>
-        </div>
+            </Paper>
+        </ThemeProvider>
     )
 }
