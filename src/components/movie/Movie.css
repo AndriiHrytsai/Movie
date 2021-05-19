@@ -6,8 +6,9 @@
     min-height: 600px;
     margin: 0 auto;
 }
-
-
+.film{
+    /*background: red;*/
+}
 .storyPage {
     margin: 20px;
     display: flex;

@@ -16,8 +16,8 @@ export default function MovieListDetails({item}) {
         e.preventDefault();
         const likes = {
             id: id,
-            photo : movieDetails.poster_path,
-            title : movieDetails.title
+            photo: movieDetails.poster_path,
+            title: movieDetails.title
         }
         let buttonStatus = likeItem.find(value => value.id === id)
         if (!buttonStatus) {
@@ -42,38 +42,43 @@ export default function MovieListDetails({item}) {
         <div>
             {
                 movieDetails &&
-                (<div className={"detailsInfo"}>
-                    <div className={"detailsImage"}>
-                        <img src={"https://image.tmdb.org/t/p/w300" + movieDetails.poster_path} alt=""/>
-                    </div>
-                    <div className={'wrapper'}>
-                        <div className={"movieDetailsContainer"}>
-                            <div className={"movieDetailsHeader"}>
-                                {<h1>{movieDetails.title}</h1>}
-                                {<h3>{movieDetails.release_date}</h3>}
-                            </div>
-                            <div className={"movieGanres"}>
-                                Genres :
-                                {
-                                    movieDetails.genres.map(value => {
-                                        return <span key={value.id}> <li>{value.name}</li>  </span>
-                                    })
-                                }
-                                <div className={"movieDetailsPopularity"}>
-                                    Popularity : {movieDetails.popularity}<br/>
-                                    Time : {movieDetails.runtime}<br/>
-                                    Original language : {movieDetails.original_language}
-                                </div>
-                                <div className={"movieDetailsFigure"}>{movieDetails.vote_average}</div>
-                            </div>
+                (<div style={{
+                    backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(https://image.tmdb.org/t/p/original${movieDetails.backdrop_path})`,
+                    backgroundSize: "cover" }}>
+                    <div className={"detailsInfo"}>
+                        <div className={"detailsImage"}>
+                            <img src={"https://image.tmdb.org/t/p/w300" + movieDetails.poster_path} alt=""/>
                         </div>
-                        <div className={'movieDetailsOverview'}>{movieDetails.overview}</div>
+                        <div className={'wrapper'}>
+                            <div className={"movieDetailsContainer"}>
+                                <div className={"movieDetailsHeader"}>
+                                    {<h1>{movieDetails.title}</h1>}
+                                    {<h3>{movieDetails.release_date}</h3>}
+                                </div>
+                                <div className={"movieGanres"}>
+                                    Genres :
+                                    {
+                                        movieDetails.genres.map(value => {
+                                            return <span className={"genre"} key={value.id}> <li>{value.name}</li>  </span>
+                                        })
+                                    }
+                                    <div className={"movieDetailsPopularity"}>
+                                        Popularity : {movieDetails.popularity}<br/>
+                                        Time : {movieDetails.runtime}<br/>
+                                        Original language : {movieDetails.original_language}
+                                    </div>
+                                    <div className={"movieDetailsFigure"}>{movieDetails.vote_average}</div>
+                                </div>
+                            </div>
+                            <div className={'movieDetailsOverview'}>{movieDetails.overview}</div>
 
-                        <button className={"likeButton"} onClick={like}>{!flag ? 'like' : 'deslike'}</button>
+                            <button className={"likeButton"} onClick={like}>{!flag ? 'like' : 'deslike'}</button>
 
+                        </div>
                     </div>
                 </div>)
             }
+            <br/>
             {
                 movieVideo && (movieVideo.map((value, index) => {
                     if (index === 0) {

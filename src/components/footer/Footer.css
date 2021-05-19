@@ -1,0 +1,19 @@
+
+.footerMain {
+    border-top: 1px solid black;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerText {
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+    margin-right: 10px;
+}
+.footerMain img {
+    height: 50px;
+}
